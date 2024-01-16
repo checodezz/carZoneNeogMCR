@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Car Brands</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>List Of Car Brands</h1>
+    </header>
+
+    <main>
+      <section id="listOfCars"></section>
+      <br />
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Car Zone. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      let carBrands = [
+        {
+          id: "1",
+          name: "CarCo",
+          country: "United States",
+          founded: 1990,
+          headquarters: "Detroit, Michigan",
+          popularModels: ["Family Sedan", "Sporty Coupe", "Luxury SUV"],
+        },
+        {
+          id: "2",
+          name: "AutoTech",
+          country: "Germany",
+          founded: 1985,
+          headquarters: "Stuttgart",
+          popularModels: [
+            "All-Terrain SUV",
+            "Performance Sedan",
+            "Convertible",
+          ],
+        },
+        {
+          id: "3",
+          name: "GreenDrive",
+          country: "Japan",
+          founded: 2005,
+          headquarters: "Tokyo",
+          popularModels: [
+            "Electric",
+            "Hybrid Compact",
+            "Fuel-Efficient Hatchback",
+          ],
+        },
+      ];
+
+      let listOfCarsWithDetails = document.getElementById("listOfCars");
+
+      for (let i = 0; i < carBrands.length; i++) {
+        // const car = listOfCarsWithDetails[i]
+
+        listOfCarsWithDetails.innerHTML += `
+        
+        <ul>
+        <li><h3>${carBrands[i].name} (${carBrands[i].country})</h3></li>
+        <p><strong>Founded Year:</strong> ${carBrands[i].founded}</p>
+        <p><strong>Head Quaters:</strong> ${carBrands[i].headquarters}</p>
+<p><strong>Popular Models:</strong> ${carBrands[i].popularModels.join(", ")}</p>
+
+        </ul>
+        `;
+      }
+    </script>
+  </body>
+</html>

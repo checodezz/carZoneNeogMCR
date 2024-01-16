@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Car Details</title>
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="index.html">CarZone</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./cars.html">Cars</a></li>
+          <li><a href="./carBrands.html">Car Brands</a></li>
+          <li><a href="./carReport.html">Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h1>Car Details</h1>
+      </section>
+
+      <section id="selectedCarDetails"></section>
+      <br /><br /><br /><br />
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Car Zone. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      let cars = [
+        {
+          id: "1",
+          name: "Family Sedan",
+          model: "Sedan",
+          detail: "A comfortable family car with sleek design.",
+          manufacturer: "CarCo",
+          year: 2022,
+          color: "Blue",
+          price: 300000,
+        },
+        {
+          id: "2",
+          name: "All-Terrain SUV",
+          model: "SUV",
+          detail: "An all-terrain vehicle with spacious interior.",
+          manufacturer: "AutoTech",
+          year: 2023,
+          color: "Silver",
+          price: 450000,
+        },
+        {
+          id: "3",
+          name: "GreenDrive Electric",
+          model: "Electric",
+          detail: "An eco-friendly electric car with cutting-edge technology.",
+          manufacturer: "GreenDrive",
+          year: 2021,
+          color: "Green",
+          price: 500000,
+        },
+      ];
+
+      const selectedCarDetails = document.getElementById("selectedCarDetails");
+
+      // let url = window.location.href;
+      // console.log(url);
+
+      function getIdParams(id) {
+        let url = new URL(window.location.href);
+        return url.searchParams.get(id);
+      }
+
+      let carId = getIdParams("id");
+      // console.log(selectedCar);
+
+      let selectedCar;
+      for (let i = 0; i < cars.length; i++) {
+        if (carId === cars[i].id) {
+          selectedCar = cars[i];
+        }
+      }
+      console.log(selectedCar);
+
+      if (selectedCar) {
+        selectedCarDetails.innerHTML = `
+        <h3>${selectedCar.name}</h3>
+        <ul>
+        <li>Model: ${selectedCar.model}</li>
+        <li>Detail: ${selectedCar.detail}</li>
+        <li>Manufacturer: ${selectedCar.manufacturer}</li>
+        <li>Color: ${selectedCar.color}</li>
+        <li>Year: ${selectedCar.year}</li>
+        <li>Price: Rs. ${selectedCar.price}</li>
+
+        </ul>
+        `;
+      }
+    </script>
+  </body>
+</html>
